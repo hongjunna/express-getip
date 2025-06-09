@@ -22,7 +22,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Howzit? Welcome to Express API service! your IP is " + req.ip);
 });
 
-const port: number = Number(process.env.PORT) || 4000;
+const port: number = Number(process.env.PORT) || 4001;
 app.listen(port, () => {
   logger.info(`http://127.0.0.1:${port} 에서 서버가 실행되었습니다.`);
 });
