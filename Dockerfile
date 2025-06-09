@@ -13,5 +13,5 @@ WORKDIR /
 COPY package*.json ./
 RUN npm install --only=production
 COPY --from=builder /build/dist ./dist
-EXPOSE 4000
+EXPOSE 4001
 CMD ["node", "dist/server.js"]
