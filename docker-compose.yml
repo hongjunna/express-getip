@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  express:
+    build: .
+    ports:
+      - "4000"
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/logs
+      - ./src/db:/src/db
+    restart: always
+
+  nginx:
+    image: nginx:1.25
+    ports:
+      - "4000:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
+    depends_on:
+      - express
