@@ -19,7 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morganLogger);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Howzit? Welcome to Express API service! your IP is " + req.ip);
+  console.log("req.ip:", req.ip);
+  console.log("x-forwarded-for:", req.headers["x-forwarded-for"]);
+  console.log("x-real-ip:", req.headers["x-real-ip"]);
+  res.send("Your IP is " + req.ip);
 });
 
 const port: number = Number(process.env.PORT) || 4001;
