@@ -25,7 +25,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Your IP is " + req.ip);
 });
 
-const port: number = Number(process.env.PORT) || 4001;
+const port: number = Number(process.env.PORT) || 4000;
 app.listen(port, () => {
   logger.info(`http://127.0.0.1:${port} 에서 서버가 실행되었습니다.`);
 });
